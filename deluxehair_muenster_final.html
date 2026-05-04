@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deluxe Hair Münster: Friseurmeisterinnen für Schnitt, Farbe, Balayage, Pflege und Styling in der Salzstraße.">
+<title>Deluxe Hair Münster | Friseur in der Salzstraße</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#151515;
+  --muted:#66615a;
+  --soft:#f6f4ef;
+  --paper:#fffdf9;
+  --line:#ded8cc;
+  --sage:#66766a;
+  --sage-dark:#3e4e44;
+  --gold:#b89b68;
+  --rose:#b76d5e;
+  --shadow:0 18px 60px rgba(21,21,21,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.skip-link{position:absolute;left:1rem;top:-4rem;background:var(--ink);color:#fff;padding:.7rem 1rem;z-index:999;text-decoration:none}
+.skip-link:focus{top:1rem}
+
+.topbar{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:100;
+  background:rgba(255,253,249,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(222,216,204,.85);
+}
+.nav{
+  width:min(1180px,100%);
+  height:72px;
+  margin:0 auto;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.brand{
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  font-family:Georgia,serif;
+  font-size:1.45rem;
+  font-weight:500;
+  text-decoration:none;
+  line-height:1;
+  white-space:nowrap;
+}
+.brand em{font-style:italic;color:var(--sage)}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  list-style:none;
+}
+.nav-link{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:color .18s ease;
+}
+.nav-link:hover,.nav-link.active{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn{
+  min-height:42px;
+  border:1px solid transparent;
+  border-radius:4px;
+  padding:.72rem 1.1rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-dark:hover{background:var(--sage-dark);border-color:var(--sage-dark)}
+.btn-light{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-light:hover{border-color:var(--ink)}
+.btn-white{background:#fff;color:var(--ink);border-color:#fff}
+.btn-sage{background:var(--sage-dark);color:#fff;border-color:var(--sage-dark)}
+.nav-actions .menu-btn{display:none}
+
+.page{display:none}
+.page.active{display:block}
+main{padding-top:72px}
+.wrap{width:min(1180px,100%);margin:0 auto;padding:0 28px}
+.eyebrow{
+  color:var(--sage);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:.75rem;
+}
+.headline{
+  font-family:Georgia,serif;
+  font-size:2.65rem;
+  font-weight:400;
+  line-height:1.08;
+}
+.headline em{font-style:italic;color:var(--sage)}
+.lead{color:var(--muted);font-size:1rem;line-height:1.85}
+
+.hero{
+  min-height:calc(100vh - 118px);
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr);
+  background:
+    linear-gradient(90deg,rgba(255,253,249,.96),rgba(255,253,249,.8) 44%,rgba(255,253,249,0) 66%),
+    var(--paper);
+}
+.hero-copy{
+  align-self:center;
+  padding:74px 36px 74px max(28px,calc((100vw - 1180px)/2 + 28px));
+}
+.hero h1{
+  max-width:620px;
+  font-family:Georgia,serif;
+  font-size:4.35rem;
+  font-weight:400;
+  line-height:1.02;
+  overflow-wrap:break-word;
+}
+.hero h1 em{font-style:italic;color:var(--sage)}
+.hero-text{max-width:520px;margin:24px 0 30px;color:var(--muted);font-size:1.08rem;line-height:1.85}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.trust-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:560px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.trust-item{padding:18px 18px 16px 0}
+.trust-item+ .trust-item{padding-left:18px;border-left:1px solid var(--line)}
+.trust-value{font-family:Georgia,serif;font-size:1.6rem;line-height:1;color:var(--sage-dark)}
+.trust-label{margin-top:6px;color:var(--muted);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.hero-media{position:relative;min-height:620px;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-card{
+  position:absolute;
+  left:34px;
+  bottom:34px;
+  width:min(360px,calc(100% - 68px));
+  padding:24px;
+  background:rgba(255,253,249,.93);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  border-radius:6px;
+}
+.hero-card-title{font-family:Georgia,serif;font-size:1.35rem;line-height:1.15}
+.hero-card p{margin-top:8px;color:var(--muted);font-size:.9rem;line-height:1.7}
+
+.ticker{
+  background:var(--ink);
+  color:#fff;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.ticker-track{display:inline-flex;animation:ticker 27s linear infinite}
+.ticker span{
+  display:inline-flex;
+  align-items:center;
+  min-height:46px;
+  padding:0 22px;
+  color:rgba(255,255,255,.74);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.ticker .dot{color:var(--gold);padding:0 4px}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+.section{padding:92px 0}
+.section-soft{background:var(--soft)}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,420px);
+  gap:36px;
+  align-items:end;
+  margin-bottom:42px;
+}
+.section-head .lead{max-width:420px}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.service{
+  min-height:248px;
+  padding:28px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,253,249,.6);
+  transition:background .2s ease,transform .2s ease;
+}
+.service:hover{background:#fff;transform:translateY(-2px)}
+.service-number{font-family:Georgia,serif;color:var(--gold);font-size:1.55rem;line-height:1;margin-bottom:22px}
+.service h3{font-size:1.02rem;font-weight:600;margin-bottom:8px}
+.service p{color:var(--muted);font-size:.92rem;line-height:1.75}
+.service-price{margin-top:18px;color:var(--sage-dark);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.15fr .85fr 1fr;
+  grid-template-rows:300px 240px;
+  gap:8px;
+}
+.photo{position:relative;overflow:hidden;background:var(--line);border-radius:2px}
+.photo:first-child{grid-row:1/3}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.photo:hover img{transform:scale(1.04)}
+.photo-label{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  padding:.45rem .65rem;
+  background:rgba(255,253,249,.92);
+  color:var(--ink);
+  border-radius:4px;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.review{
+  padding:26px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+}
+.stars{color:var(--gold);font-size:.95rem;letter-spacing:.15em;margin-bottom:14px}
+.quote{
+  font-family:Georgia,serif;
+  color:#3f3a34;
+  font-size:1.02rem;
+  line-height:1.7;
+  font-style:italic;
+}
+.review-name{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.cta-band{
+  background:linear-gradient(135deg,var(--ink),var(--sage-dark));
+  color:#fff;
+  padding:64px 0;
+}
+.cta-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.cta-inner h2{
+  max-width:760px;
+  font-family:Georgia,serif;
+  font-size:2.3rem;
+  font-weight:400;
+  line-height:1.15;
+}
+.cta-inner h2 em{font-style:italic;color:#d8c79d}
+
+.page-hero{padding:94px 0 58px;background:var(--soft)}
+.page-hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,420px);
+  gap:40px;
+  align-items:end;
+}
+.page-hero h1{
+  font-family:Georgia,serif;
+  font-size:3.1rem;
+  font-weight:400;
+  line-height:1.08;
+}
+.page-hero h1 em{font-style:italic;color:var(--sage)}
+
+.price-section{padding:68px 0 92px}
+.price-category{
+  margin-top:42px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+  background:#fff;
+}
+.price-category:first-child{margin-top:0}
+.price-title{
+  padding:18px 22px;
+  background:var(--ink);
+  color:#fff;
+  font-family:Georgia,serif;
+  font-size:1.16rem;
+}
+.price-table{width:100%;border-collapse:collapse}
+.price-table th,.price-table td{padding:15px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.price-table th{
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  text-align:right;
+  background:#fbfaf7;
+}
+.price-table th:first-child{text-align:left}
+.price-table td:not(:first-child){text-align:right;color:var(--muted);white-space:nowrap}
+.price-table tr:last-child td{border-bottom:0}
+.price-name{font-weight:500;color:var(--ink)}
+.price-note{color:var(--muted);font-size:.84rem;margin-top:3px}
+.info-note{
+  margin-top:28px;
+  padding:20px 22px;
+  border-left:4px solid var(--sage);
+  background:var(--soft);
+  color:var(--muted);
+  line-height:1.75;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);
+  gap:56px;
+  align-items:center;
+}
+.story-media{height:560px;overflow:hidden;border-radius:6px}
+.story-media img{width:100%;height:100%;object-fit:cover}
+.story-copy p{margin-top:16px;color:var(--muted);font-size:1rem;line-height:1.85}
+.signature{
+  margin-top:22px;
+  padding-left:18px;
+  border-left:3px solid var(--gold);
+  font-family:Georgia,serif;
+  font-size:1.22rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:800px;margin-top:34px}
+.team-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+}
+.team-photo{height:330px;overflow:hidden;background:var(--line)}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.team-body{padding:24px}
+.team-body h3{font-family:Georgia,serif;font-size:1.45rem;font-weight:400}
+.role{margin:4px 0 12px;color:var(--sage);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.team-body p{color:var(--muted);font-size:.92rem;line-height:1.75}
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:34px;
+}
+.value{
+  padding:26px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+}
+.value span{font-family:Georgia,serif;color:var(--gold);font-size:1.55rem}
+.value h3{margin:16px 0 8px;font-size:.96rem;font-weight:600}
+.value p{color:var(--muted);font-size:.9rem;line-height:1.75}
+
+.booking-wrap{max-width:760px;margin:0 auto;padding:86px 28px 96px}
+.form-panel{
+  margin-top:34px;
+  padding:34px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:6px;
+  box-shadow:var(--shadow);
+}
+.form-section{
+  margin:28px 0 18px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+  color:var(--sage-dark);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.form-section:first-child{margin-top:0}
+.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--muted);
+  font-size:.74rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.input,.select,.textarea{
+  width:100%;
+  min-height:44px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#fff;
+  padding:.72rem .82rem;
+  color:var(--ink);
+  outline:0;
+  transition:border-color .18s ease,box-shadow .18s ease;
+}
+.textarea{min-height:110px;resize:vertical}
+.input:focus,.select:focus,.textarea:focus{
+  border-color:var(--sage);
+  box-shadow:0 0 0 3px rgba(102,118,106,.12);
+}
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.slot{
+  min-height:42px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#fff;
+  color:var(--ink);
+  font-size:.84rem;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.slot:hover,.slot.selected{background:var(--sage-dark);border-color:var(--sage-dark);color:#fff}
+.success{
+  display:none;
+  margin-top:20px;
+  padding:18px;
+  border:1px solid rgba(102,118,106,.35);
+  background:rgba(102,118,106,.08);
+  border-radius:6px;
+  color:var(--sage-dark);
+  text-align:center;
+}
+.success.show{display:block}
+.privacy-note{
+  margin:6px 0 18px;
+  padding:14px 16px;
+  border:1px solid rgba(102,118,106,.22);
+  border-radius:6px;
+  background:rgba(102,118,106,.07);
+  color:var(--muted);
+  font-size:.84rem;
+  line-height:1.65;
+}
+.privacy-note a{color:var(--sage-dark);font-weight:600;text-decoration:none}
+.privacy-note a:hover{text-decoration:underline}
+.check-field{
+  display:grid;
+  grid-template-columns:20px 1fr;
+  gap:10px;
+  align-items:start;
+  margin:4px 0 18px;
+  color:var(--muted);
+  font-size:.84rem;
+  line-height:1.55;
+}
+.check-field input{width:18px;height:18px;margin-top:2px;accent-color:var(--sage-dark)}
+.check-field a{color:var(--sage-dark);font-weight:600;text-decoration:none}
+.check-field a:hover{text-decoration:underline}
+
+.contact-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(320px,1.08fr);gap:58px}
+.contact-list{display:grid;gap:18px;margin-top:30px}
+.contact-item{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.label{color:var(--muted);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.value-text{margin-top:4px;font-size:1rem}
+.hours{width:100%;border-collapse:collapse;margin-top:26px}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:first-child{color:var(--muted)}
+.hours td:last-child{text-align:right;font-weight:500}
+.map-box{
+  margin-top:28px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:var(--soft);
+}
+.map-box a{display:inline-block;margin-top:8px;color:var(--sage-dark);font-weight:600;text-decoration:none}
+
+.footer{
+  padding:56px 0 24px;
+  background:var(--ink);
+  color:#fff;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(160px,.6fr));
+  gap:44px;
+}
+.footer-brand{
+  font-family:Georgia,serif;
+  font-size:1.45rem;
+  font-weight:400;
+  margin-bottom:12px;
+}
+.footer p,.footer a{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.8}
+.footer h3{
+  margin-bottom:14px;
+  color:rgba(255,255,255,.38);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.footer a{
+  display:block;
+  border:0;
+  background:transparent;
+  text-decoration:none;
+  margin-bottom:8px;
+  cursor:pointer;
+}
+.footer a:hover{color:#fff}
+.footer-bottom{
+  margin-top:42px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.1);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  color:rgba(255,255,255,.38);
+  font-size:.78rem;
+}
+.footer-bottom a{
+  display:inline;
+  margin:0;
+  color:rgba(255,255,255,.62);
+  text-decoration:none;
+}
+.footer-bottom a:hover{color:#fff}
+.legal-links{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+.legal-section{padding:72px 0 96px}
+.legal-layout{
+  display:grid;
+  grid-template-columns:260px minmax(0,1fr);
+  gap:34px;
+  align-items:start;
+}
+.legal-aside{
+  position:sticky;
+  top:100px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:var(--soft);
+}
+.legal-aside h2{
+  margin-bottom:14px;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--sage-dark);
+}
+.legal-aside a{
+  display:block;
+  padding:9px 0;
+  border-bottom:1px solid rgba(222,216,204,.85);
+  color:var(--muted);
+  font-size:.9rem;
+  text-decoration:none;
+}
+.legal-aside a:hover{color:var(--ink)}
+.legal-card{
+  padding:38px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+.legal-card h2{
+  margin:34px 0 12px;
+  font-family:Georgia,serif;
+  font-size:1.55rem;
+  font-weight:400;
+  line-height:1.2;
+}
+.legal-card h2:first-child{margin-top:0}
+.legal-card h3{
+  margin:24px 0 8px;
+  color:var(--sage-dark);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.legal-card p,.legal-card li{
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.85;
+}
+.legal-card p+p{margin-top:12px}
+.legal-card ul{margin:10px 0 0 20px}
+.legal-card a{color:var(--sage-dark);font-weight:500;text-decoration:none}
+.legal-card a:hover{text-decoration:underline}
+.legal-facts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:18px 0 8px;
+}
+.legal-fact{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:var(--soft);
+}
+.legal-fact strong{
+  display:block;
+  margin-bottom:6px;
+  color:var(--ink);
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.legal-muted{
+  margin-top:26px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+@media (max-width:980px){
+  .nav{height:66px}
+  main{padding-top:66px}
+  .nav-actions .menu-btn{display:inline-flex}
+  .nav-links{
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:78px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:10px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:var(--shadow);
+  }
+  .nav-links.open{display:flex}
+  .nav-link{width:100%;padding:14px;text-align:left}
+  .nav-actions .btn-dark{display:none}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:62px 28px 44px}
+  .hero h1{font-size:3.25rem}
+  .hero-media{min-height:430px}
+  .section-head,.page-hero-grid,.story-grid,.contact-grid,.legal-layout{grid-template-columns:1fr}
+  .legal-aside{position:static}
+  .service-grid,.review-grid,.values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:280px 220px 220px}
+  .photo:first-child{grid-column:1/3;grid-row:auto}
+  .cta-inner{align-items:flex-start;flex-direction:column}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .wrap{padding:0 20px}
+  .nav{padding:0 20px;gap:12px}
+  .brand{font-size:1.22rem}
+  .btn{width:100%;padding:.72rem .9rem}
+  .menu-btn{width:auto}
+  .hero-copy{padding:50px 20px 34px}
+  .hero h1{font-size:2.08rem;line-height:1.1}
+  .hero-text{font-size:1rem}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .trust-row{grid-template-columns:1fr}
+  .trust-item{padding:14px 0}
+  .trust-item+ .trust-item{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .hero-media{min-height:360px}
+  .hero-card{left:18px;right:18px;bottom:18px;width:auto;padding:18px}
+  .headline,.page-hero h1{font-size:2.05rem}
+  .section{padding:66px 0}
+  .service-grid,.review-grid,.values-grid,.team-grid,.footer-grid{grid-template-columns:1fr}
+  .service{min-height:auto}
+  .gallery{grid-template-columns:1fr;grid-template-rows:repeat(5,230px)}
+  .photo:first-child{grid-column:auto}
+  .page-hero{padding:64px 0 44px}
+  .price-table{font-size:.9rem}
+  .price-table th,.price-table td{padding:12px 10px}
+  .story-media{height:360px}
+  .booking-wrap{padding:62px 20px 76px}
+  .form-panel{padding:22px}
+  .legal-card{padding:24px}
+  .legal-facts{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .slots{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hours td{display:block;text-align:left!important;padding:8px 0;border-bottom:0}
+  .hours tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}
+  .footer-bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+<header class="topbar">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <button class="brand" type="button" onclick="go('home')">Deluxe <em>Hair</em></button>
+    <ul class="nav-links" id="navLinks">
+      <li><button class="nav-link active" type="button" data-page="home" onclick="go('home',this)">Home</button></li>
+      <li><button class="nav-link" type="button" data-page="preise" onclick="go('preise',this)">Preise</button></li>
+      <li><button class="nav-link" type="button" data-page="ueber" onclick="go('ueber',this)">Über uns</button></li>
+      <li><button class="nav-link" type="button" data-page="buchung" onclick="go('buchung',this)">Buchung</button></li>
+      <li><button class="nav-link" type="button" data-page="kontakt" onclick="go('kontakt',this)">Kontakt</button></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-light menu-btn" type="button" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu(this)">Menü</button>
+      <button class="btn btn-dark" type="button" onclick="go('buchung')">Termin buchen</button>
+    </div>
+  </nav>
+</header>
+
+<main id="content">
+  <section id="p-home" class="page active" aria-labelledby="home-title">
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Friseurmeisterinnen in Münster</div>
+        <h1 id="home-title">Handwerk, Ruhe und ein Look, der wirklich zu Ihnen <em>passt</em>.</h1>
+        <p class="hero-text">Deluxe Hair ist Ihr Salon in der Salzstraße für typgerechte Schnitte, präzise Farbe, Balayage, Pflege und Styling. Persönlich beraten, sorgfältig umgesetzt und angenehm entspannt.</p>
+        <div class="hero-actions">
+          <button class="btn btn-dark" type="button" onclick="go('buchung')">Termin anfragen</button>
+          <button class="btn btn-light" type="button" onclick="go('preise')">Leistungen ansehen</button>
+        </div>
+        <div class="trust-row" aria-label="Salon Merkmale">
+          <div class="trust-item">
+            <div class="trust-value">2006</div>
+            <div class="trust-label">Salon seit</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-value">1:1</div>
+            <div class="trust-label">Beratung</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-value">5★</div>
+            <div class="trust-label">Kundengefühl</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://deluxehair.de/img/topgalery/salon_01.jpg" alt="Eleganter Salonbereich von Deluxe Hair Münster">
+        <div class="hero-card">
+          <div class="hero-card-title">Ruhige Wellness-Oase in der Salzstraße.</div>
+          <p>Ein Termin bei uns soll nicht hektisch sein. Wir nehmen uns Zeit für Haar, Kopfhaut, Wunschlook und das gute Gefühl danach.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Haarschnitt</span><span class="dot">•</span><span>Balayage</span><span class="dot">•</span><span>Farbgestaltung</span><span class="dot">•</span><span>Glossing</span><span class="dot">•</span><span>Haarpflege</span><span class="dot">•</span><span>Hochsteckfrisur</span><span class="dot">•</span><span>Kopfhautmassage</span><span class="dot">•</span><span>Typberatung</span><span class="dot">•</span>
+        <span>Haarschnitt</span><span class="dot">•</span><span>Balayage</span><span class="dot">•</span><span>Farbgestaltung</span><span class="dot">•</span><span>Glossing</span><span class="dot">•</span><span>Haarpflege</span><span class="dot">•</span><span>Hochsteckfrisur</span><span class="dot">•</span><span>Kopfhautmassage</span><span class="dot">•</span><span>Typberatung</span><span class="dot">•</span>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Leistungen</div>
+            <h2 class="headline" id="services-title">Sichtbar schöner, spürbar gepflegter.</h2>
+          </div>
+          <p class="lead">Vom klaren Schnitt bis zur aufwendigen Farbtechnik: Wir beraten ehrlich, planen realistisch und arbeiten mit Blick auf Haarqualität, Alltag und Stil.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service">
+            <div class="service-number">01</div>
+            <h3>Schnitt & Styling</h3>
+            <p>Typgerechte Haarschnitte inklusive Beratung, Verwöhnwäsche, Massage und einem Finish, das auch zu Hause funktioniert.</p>
+            <div class="service-price">Damen ab 49 € · Herren ab 31,50 €</div>
+          </article>
+          <article class="service">
+            <div class="service-number">02</div>
+            <h3>Farbe & Balayage</h3>
+            <p>Intensivtönung, Foliensträhnen, Highlights und Balayage mit sauberer Tonalität und abgestimmter Pflege.</p>
+            <div class="service-price">Farbe ab 40,50 € · Balayage ab 90 €</div>
+          </article>
+          <article class="service">
+            <div class="service-number">03</div>
+            <h3>Pflegebehandlungen</h3>
+            <p>Regeneration, Schutz, Glanz und bessere Frisierbarkeit für strapaziertes oder anspruchsvolles Haar.</p>
+            <div class="service-price">ab 15 €</div>
+          </article>
+          <article class="service">
+            <div class="service-number">04</div>
+            <h3>Kopfhautbehandlung</h3>
+            <p>Peeling, Massage und gezielte Spezialbehandlung für eine entspannte, gepflegte Kopfhaut.</p>
+            <div class="service-price">ab 13 €</div>
+          </article>
+          <article class="service">
+            <div class="service-number">05</div>
+            <h3>Festliches Styling</h3>
+            <p>Hochsteckfrisuren und Anlass-Styling für Hochzeiten, Feiern und besondere Auftritte.</p>
+            <div class="service-price">50 bis 80 €</div>
+          </article>
+          <article class="service">
+            <div class="service-number">06</div>
+            <h3>Augen & Hände</h3>
+            <p>Augenbrauen, Wimpern, Nagelpflege und pflegende Handbehandlungen als feiner Abschluss Ihres Termins.</p>
+            <div class="service-price">ab 9 €</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-label="Salon Eindrücke">
+      <div class="wrap">
+        <div class="gallery">
+          <figure class="photo"><img src="https://deluxehair.de/img/topgalery/salon_02.jpg" alt="Salon Deluxe Hair Münster"><figcaption class="photo-label">Salon</figcaption></figure>
+          <figure class="photo"><img src="https://deluxehair.de/img/topgalery/salon_03.jpg" alt="Waschplatz im Salon"><figcaption class="photo-label">Pflege</figcaption></figure>
+          <figure class="photo"><img src="https://deluxehair.de/img/content/17.jpg" alt="Haarpflegeprodukte im Salon"><figcaption class="photo-label">Produkte</figcaption></figure>
+          <figure class="photo"><img src="https://deluxehair.de/img/topgalery/salon_04.jpg" alt="Waschstation Deluxe Hair"><figcaption class="photo-label">Auszeit</figcaption></figure>
+          <figure class="photo"><img src="https://deluxehair.de/img/content/83.jpg" alt="Typberatung bei Deluxe Hair"><figcaption class="photo-label">Beratung</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Kundenstimmen</div>
+            <h2 class="headline" id="reviews-title">Was Kundinnen und Kunden schätzen.</h2>
+          </div>
+          <button class="btn btn-light" type="button" onclick="go('buchung')">Selbst erleben</button>
+        </div>
+        <div class="review-grid">
+          <article class="review">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="quote">Sehr nettes Team, tolle Beratung und ein perfektes Ergebnis. Ich komme immer wieder gern.</p>
+            <div class="review-name">Sandra K. · März 2025</div>
+          </article>
+          <article class="review">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="quote">Antje nimmt sich wirklich Zeit und versteht genau, was man möchte. Eine kleine Auszeit.</p>
+            <div class="review-name">Laura M. · Februar 2025</div>
+          </article>
+          <article class="review">
+            <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="quote">Mein Balayage ist traumhaft geworden. Professionell, herzlich und sehr kompetent.</p>
+            <div class="review-name">Julia H. · Oktober 2024</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <h2>Bereit für einen Look, der gepflegt, modern und ganz nach Ihnen aussieht?</h2>
+        <button class="btn btn-white" type="button" onclick="go('buchung')">Termin anfragen</button>
+      </div>
+    </section>
+  </section>
+
+  <section id="p-preise" class="page" aria-labelledby="prices-title">
+    <div class="page-hero">
+      <div class="wrap page-hero-grid">
+        <div>
+          <div class="eyebrow">Transparente Preise</div>
+          <h1 id="prices-title">Unsere <em>Leistungen</em></h1>
+        </div>
+        <p class="lead">Preise nach Haarlänge S / M / L. Den genauen Preis nennen wir nach der Beratung selbstverständlich vor Beginn der Leistung.</p>
+      </div>
+    </div>
+    <div class="price-section">
+      <div class="wrap">
+        <section class="price-category">
+          <h2 class="price-title">Haardesign · Schnitt & Styling</h2>
+          <table class="price-table">
+            <tr><th>Leistung</th><th>S</th><th>M</th><th>L</th></tr>
+            <tr><td><div class="price-name">Waschen & Frisurenstyling</div></td><td>28 €</td><td>30 €</td><td>38 €</td></tr>
+            <tr><td><div class="price-name">Typgerechter Damenschnitt</div><div class="price-note">inkl. Beratung, Wäsche, Massage & Styling</div></td><td>49 €</td><td>54 €</td><td>59 €</td></tr>
+            <tr><td><div class="price-name">Damenschnitt Schüler/Studenten</div></td><td>39 €</td><td>44 €</td><td>49 €</td></tr>
+            <tr><td><div class="price-name">Typgerechter Herrenschnitt</div><div class="price-note">inkl. Beratung, Wäsche, Massage & Styling</div></td><td>31,50 €</td><td>–</td><td>–</td></tr>
+            <tr><td><div class="price-name">Herrenschnitt Schüler/Studenten</div></td><td>24,50 €</td><td>–</td><td>–</td></tr>
+            <tr><td><div class="price-name">Kinderhaarschnitt</div><div class="price-note">bis 12 Jahre</div></td><td>18 €</td><td>–</td><td>–</td></tr>
+            <tr><td><div class="price-name">Hochsteckfrisur</div></td><td colspan="3">50 bis 80 €</td></tr>
+          </table>
+        </section>
+
+        <section class="price-category">
+          <h2 class="price-title">Farb- & Formgestaltung</h2>
+          <table class="price-table">
+            <tr><th>Leistung</th><th>S</th><th>M</th><th>L</th></tr>
+            <tr><td><div class="price-name">Intensivtönung / Haarfarbe</div></td><td>40,50 €</td><td>59 €</td><td>75 €</td></tr>
+            <tr><td><div class="price-name">Foliensträhnen</div></td><td>58 €</td><td>68 €</td><td>95 €</td></tr>
+            <tr><td><div class="price-name">Farbeffekte Highlights</div></td><td>50 €</td><td>60 €</td><td>70 €</td></tr>
+            <tr><td><div class="price-name">Balayage</div></td><td>–</td><td>90 €</td><td>150 €</td></tr>
+            <tr><td><div class="price-name">Pastellcoloration / Glossing</div></td><td>35 €</td><td>40 €</td><td>45 €</td></tr>
+            <tr><td><div class="price-name">Umformung</div></td><td>65 €</td><td>80 €</td><td>100 €</td></tr>
+            <tr><td><div class="price-name">Volumenwicklung</div></td><td>50 €</td><td>65 €</td><td>85 €</td></tr>
+            <tr><td><div class="price-name">Beach Waves</div></td><td>50 €</td><td>65 €</td><td>85 €</td></tr>
+          </table>
+        </section>
+
+        <section class="price-category">
+          <h2 class="price-title">Pflege & Behandlungen</h2>
+          <table class="price-table">
+            <tr><th>Leistung</th><th>S</th><th>M</th><th>L</th></tr>
+            <tr><td><div class="price-name">Intensivhaarpflege</div><div class="price-note">Regeneration, Glanz, Frisierbarkeit</div></td><td>15 €</td><td>18 €</td><td>22 €</td></tr>
+            <tr><td><div class="price-name">Spezialhaarpflege</div><div class="price-note">Mehrphasig, Schutz, brillanter Glanz</div></td><td>25 €</td><td>30 €</td><td>35 €</td></tr>
+            <tr><td><div class="price-name">Kopfhautpeeling bei Schuppen</div></td><td>15 €</td><td>–</td><td>–</td></tr>
+            <tr><td><div class="price-name">Wellness-Kopfhautmassage mit Lotion</div></td><td>13 €</td><td>–</td><td>–</td></tr>
+          </table>
+        </section>
+
+        <section class="price-category">
+          <h2 class="price-title">Augen-, Hand- & Nagelpflege</h2>
+          <table class="price-table">
+            <tr><th>Leistung</th><th></th><th></th><th>Preis</th></tr>
+            <tr><td><div class="price-name">Augenbrauen zupfen</div></td><td></td><td></td><td>9 €</td></tr>
+            <tr><td><div class="price-name">Augenbrauen färben</div></td><td></td><td></td><td>9 €</td></tr>
+            <tr><td><div class="price-name">Wimpern färben</div></td><td></td><td></td><td>12,50 €</td></tr>
+            <tr><td><div class="price-name">Individuelle Nagelpflege</div><div class="price-note">Formen, Handbad, Pflege, Polieren</div></td><td></td><td></td><td>35 €</td></tr>
+          </table>
+        </section>
+
+        <div class="info-note">Alle Preise richten sich nach Haarlänge, Zeitaufwand und Materialeinsatz. Farb- und Formgestaltungen verstehen sich inklusive individueller Beratung, zuzüglich Waschen und Frisurenstyling.</div>
+        <div style="margin-top:28px"><button class="btn btn-dark" type="button" onclick="go('buchung')">Termin anfragen</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-ueber" class="page" aria-labelledby="about-title">
+    <div class="section">
+      <div class="wrap story-grid">
+        <div class="story-media">
+          <img src="https://deluxehair.de/img/content/13.jpg" alt="Salon Deluxe Hair in Münster">
+        </div>
+        <div class="story-copy">
+          <div class="eyebrow">Unsere Geschichte</div>
+          <h1 class="headline" id="about-title">Mehr als ein <em>Salon</em>.</h1>
+          <p>Deluxe Hair entstand aus dem Wunsch, Haarschnitte, Farbe, Make-up und Styling mit echter Sorgfalt und dauerhaft hoher Qualität anzubieten.</p>
+          <p>Inhaberin Antje führt den Salon seit 2006. In der Salzstraße ist daraus ein Ort geworden, an dem Beratung, Handwerk und entspannte Atmosphäre zusammengehören.</p>
+          <div class="signature">Gute Beratung ist der Schlüssel zu einem Friseurerlebnis, das nicht nur schön aussieht, sondern sich auch richtig anfühlt.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section-soft">
+      <div class="wrap">
+        <div class="eyebrow">Das Team</div>
+        <h2 class="headline">Ihre Ansprechpartnerinnen.</h2>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo"><img src="https://deluxehair.de/img/content/0649.jpg" alt="Antje, Inhaberin und Friseurmeisterin"></div>
+            <div class="team-body">
+              <h3>Antje</h3>
+              <div class="role">Inhaberin & Friseurmeisterin</div>
+              <p>Antje begleitet Kundinnen und Kunden mit Erfahrung, Ruhe und einem sicheren Blick für Form, Farbe und Persönlichkeit.</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="https://deluxehair.de/img/content/melanie.JPG" alt="Melanie, Stylistin bei Deluxe Hair"></div>
+            <div class="team-body">
+              <h3>Melanie</h3>
+              <div class="role">Stylistin</div>
+              <p>Melanie ist seit 2019 Teil des Teams und bringt moderne Looks, Feingefühl und ein gutes Händchen für Details ein.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Unser Versprechen</div>
+            <h2 class="headline">Was uns jeden Tag leitet.</h2>
+          </div>
+          <p class="lead">Professionelles Styling beginnt mit Zuhören. Deshalb beraten wir individuell, arbeiten präzise und nehmen Ihre Zufriedenheit ernst.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value"><span>01</span><h3>Zeit für Sie</h3><p>Wir planen Termine so, dass Beratung und Ausführung nicht gehetzt wirken.</p></article>
+          <article class="value"><span>02</span><h3>Typgerechte Beratung</h3><p>Farbe, Schnitt und Pflege werden auf Haarstruktur, Alltag und Wunschlook abgestimmt.</p></article>
+          <article class="value"><span>03</span><h3>Sauberes Ergebnis</h3><p>Wir hören erst auf, wenn Form, Finish und Gefühl stimmen.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-buchung" class="page" aria-labelledby="booking-title">
+    <div class="booking-wrap">
+      <div class="eyebrow">Terminanfrage</div>
+      <h1 class="headline" id="booking-title">Termin <em>anfragen</em></h1>
+      <p class="lead" style="margin-top:14px">Füllen Sie das Formular aus. Wir melden uns zeitnah telefonisch oder per E-Mail. Direkt erreichen Sie uns unter <strong>0251 / 1341323</strong>.</p>
+
+      <form class="form-panel" id="bookingForm">
+        <div class="form-section">Ihre Daten</div>
+        <div class="form-row">
+          <div class="field"><label for="firstName">Vorname</label><input class="input" id="firstName" name="Vorname" type="text" placeholder="Ihr Vorname" required></div>
+          <div class="field"><label for="lastName">Nachname</label><input class="input" id="lastName" name="Nachname" type="text" placeholder="Ihr Nachname" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="phone">Telefon</label><input class="input" id="phone" name="Telefon" type="tel" placeholder="0251 ..." required></div>
+          <div class="field"><label for="email">E-Mail</label><input class="input" id="email" name="E-Mail" type="email" placeholder="ihre@email.de" required></div>
+        </div>
+
+        <div class="form-section">Leistung & Termin</div>
+        <div class="field"><label for="service">Gewünschte Leistung</label>
+          <select class="select" id="service" name="Leistung" required>
+            <option value="">Bitte wählen</option>
+            <option>Typgerechter Damenschnitt</option>
+            <option>Typgerechter Herrenschnitt</option>
+            <option>Kinderhaarschnitt</option>
+            <option>Waschen & Frisurenstyling</option>
+            <option>Intensivtönung / Haarfarbe</option>
+            <option>Balayage</option>
+            <option>Foliensträhnen</option>
+            <option>Hochsteckfrisur</option>
+            <option>Intensivhaarpflege</option>
+            <option>Kopfhautbehandlung</option>
+            <option>Sonstige Leistung</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="date">Wunschdatum</label><input class="input" id="date" name="Wunschdatum" type="date" required></div>
+          <div class="field">
+            <label>Uhrzeit</label>
+            <div class="slots" aria-label="Uhrzeit auswählen">
+              <button class="slot" type="button" onclick="selectSlot(this)">09:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">10:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">11:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">12:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">13:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">14:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">15:00</button>
+              <button class="slot" type="button" onclick="selectSlot(this)">16:00</button>
+            </div>
+            <input type="hidden" id="time" name="Uhrzeit">
+          </div>
+        </div>
+
+        <div class="form-section">Anmerkungen</div>
+        <div class="field"><label for="message">Nachricht</label><textarea class="textarea" id="message" name="Nachricht" placeholder="Besondere Wünsche, Fragen oder Hinweise?"></textarea></div>
+        <p class="privacy-note">Datenschutzhinweis: Ihre Eingaben werden nicht auf dieser Seite gespeichert. Beim Absenden wird Ihr E-Mail-Programm mit einer vorbereiteten Nachricht an Deluxe Hair geöffnet. Details finden Sie unter <a href="#p-datenschutz" onclick="go('datenschutz');return false;">Datenschutz</a>.</p>
+        <label class="check-field">
+          <input type="checkbox" name="Datenschutzhinweis" required>
+          <span>Ich habe die Datenschutzhinweise gelesen und weiß, dass meine Angaben zur Bearbeitung der Terminanfrage per E-Mail übermittelt werden.</span>
+        </label>
+        <button class="btn btn-dark" type="submit" style="width:100%">Termin anfragen</button>
+        <div class="success" id="bookingSuccess">Vielen Dank. Ihre Anfrage wurde vorbereitet. Wir melden uns zeitnah bei Ihnen.</div>
+      </form>
+    </div>
+  </section>
+
+  <section id="p-kontakt" class="page" aria-labelledby="contact-title">
+    <div class="page-hero">
+      <div class="wrap page-hero-grid">
+        <div>
+          <div class="eyebrow">Kontakt</div>
+          <h1 id="contact-title">So finden Sie <em>uns</em></h1>
+        </div>
+        <p class="lead">Sie finden Deluxe Hair in der Salzstraße 16-17, zentral in Münster. Wir freuen uns auf Ihren Besuch.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="contact-list">
+            <div class="contact-item"><div class="label">Adresse</div><div class="value-text">Salzstraße 16-17<br>48143 Münster</div></div>
+            <div class="contact-item"><div class="label">Telefon</div><div class="value-text"><a href="tel:+492511341323">0251 / 1341323</a></div></div>
+            <div class="contact-item"><div class="label">E-Mail</div><div class="value-text"><a href="mailto:kontakt@deluxehair.de">kontakt@deluxehair.de</a></div></div>
+          </div>
+          <table class="hours" aria-label="Öffnungszeiten">
+            <tr><td>Montag</td><td>Geschlossen</td></tr>
+            <tr><td>Dienstag bis Donnerstag</td><td>09:00 bis 18:00</td></tr>
+            <tr><td>Freitag</td><td>09:00 bis 18:00</td></tr>
+            <tr><td>Samstag</td><td>nach Vereinbarung</td></tr>
+            <tr><td>Sonntag</td><td>Geschlossen</td></tr>
+          </table>
+          <div class="map-box">
+            <div class="label">Anfahrt</div>
+            <div class="value-text">Salzstraße 16-17, 48143 Münster</div>
+            <a href="https://maps.google.com/?q=Salzstra%C3%9Fe+16+48143+M%C3%BCnster" target="_blank" rel="noopener">In Google Maps öffnen</a>
+          </div>
+        </div>
+
+        <form class="form-panel" id="contactForm" style="margin-top:0">
+          <div class="form-section">Nachricht senden</div>
+          <div class="field"><label for="contactName">Name</label><input class="input" id="contactName" type="text" placeholder="Ihr vollständiger Name" required></div>
+          <div class="field"><label for="contactEmail">E-Mail</label><input class="input" id="contactEmail" type="email" placeholder="ihre@email.de" required></div>
+          <div class="field"><label for="subject">Betreff</label><input class="input" id="subject" type="text" placeholder="Worum geht es?" required></div>
+          <div class="field"><label for="contactMessage">Nachricht</label><textarea class="textarea" id="contactMessage" placeholder="Ihre Nachricht an uns" required></textarea></div>
+          <p class="privacy-note">Datenschutzhinweis: Ihre Nachricht wird über Ihr E-Mail-Programm vorbereitet. Auf dieser Seite findet keine serverseitige Speicherung statt.</p>
+          <label class="check-field">
+            <input type="checkbox" name="Datenschutzhinweis" required>
+            <span>Ich habe die Datenschutzhinweise gelesen und weiß, dass meine Angaben zur Bearbeitung der Kontaktanfrage per E-Mail übermittelt werden.</span>
+          </label>
+          <button class="btn btn-sage" type="submit" style="width:100%">Nachricht senden</button>
+          <div class="success" id="contactSuccess">Danke. Ihre Nachricht wurde vorbereitet.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-impressum" class="page" aria-labelledby="impressum-title">
+    <div class="page-hero">
+      <div class="wrap page-hero-grid">
+        <div>
+          <div class="eyebrow">Rechtliches</div>
+          <h1 id="impressum-title">Impressum</h1>
+        </div>
+        <p class="lead">Angaben gemäß der Originalseite von Deluxe Hair. Die Informationen sind im gleichen Design direkt in diese Datei integriert.</p>
+      </div>
+    </div>
+    <div class="legal-section">
+      <div class="wrap legal-layout">
+        <aside class="legal-aside" aria-label="Impressum Navigation">
+          <h2>Impressum</h2>
+          <a href="#impressum-verantwortlich">Verantwortlich</a>
+          <a href="#impressum-adresse">Adresse</a>
+          <a href="#impressum-beruf">Berufsrecht</a>
+          <a href="#impressum-haftung">Haftung</a>
+        </aside>
+        <article class="legal-card">
+          <h2 id="impressum-verantwortlich">Für den Inhalt verantwortlich</h2>
+          <div class="legal-facts">
+            <div class="legal-fact">
+              <strong>Unternehmen</strong>
+              <p>Deluxe Hair</p>
+            </div>
+            <div class="legal-fact" id="impressum-adresse">
+              <strong>Firmensitz / Adresse</strong>
+              <p>Salzstraße 16-17<br>48143 Münster<br>Tel.: 0251 / 1341323<br>Fax: 0251 / 1341324<br>E-Mail: kontakt@deluxehair.de</p>
+            </div>
+          </div>
+
+          <h2 id="impressum-beruf">Berufsrechtliche Regelungen</h2>
+          <p>Betriebsleiter: Antje Vetter<br>Friseurmeisterin (Bundesrepublik Deutschland)</p>
+
+          <h2>Zuständige Handwerkskammer</h2>
+          <p>Handwerkskammer Münster<br>Postfach 3480<br>48019 Münster</p>
+
+          <h2 id="impressum-haftung">Haftungsausschluss</h2>
+          <p>Trotz sorgfältiger Prüfung können wir keine Haftung für die Inhalte externer Links übernehmen. Für den Inhalt dieser Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+          <h2>Umsatzsteuer-Identifikationsnummer</h2>
+          <p>DE249581458</p>
+
+          <p class="legal-muted">Quelle: Original-Impressum unter <a href="https://www.deluxehair.de/impressum.php" target="_blank" rel="noopener">deluxehair.de/impressum.php</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-datenschutz" class="page" aria-labelledby="privacy-title">
+    <div class="page-hero">
+      <div class="wrap page-hero-grid">
+        <div>
+          <div class="eyebrow">Rechtliches</div>
+          <h1 id="privacy-title">Datenschutz</h1>
+        </div>
+        <p class="lead">Die Datenschutzerklärung der Originalseite wurde in das Deluxe-Hair-Design übertragen und als eigener Seitenbereich integriert.</p>
+      </div>
+    </div>
+    <div class="legal-section">
+      <div class="wrap legal-layout">
+        <aside class="legal-aside" aria-label="Datenschutz Navigation">
+          <h2>Datenschutz</h2>
+          <a href="#privacy-contact">Kontaktdaten</a>
+          <a href="#privacy-general">Grundsätze</a>
+          <a href="#privacy-forms">Kontakt & Termine</a>
+          <a href="#privacy-logs">Server-Logfiles</a>
+          <a href="#privacy-cookies">Cookies</a>
+          <a href="#privacy-third">Drittanbieter</a>
+          <a href="#privacy-rights">Ihre Rechte</a>
+        </aside>
+        <article class="legal-card">
+          <h2 id="privacy-contact">Verantwortliche Stelle</h2>
+          <div class="legal-facts">
+            <div class="legal-fact">
+              <strong>Verantwortlich</strong>
+              <p>Antje Vetter</p>
+            </div>
+            <div class="legal-fact">
+              <strong>Unternehmen</strong>
+              <p>Deluxe Hair</p>
+            </div>
+            <div class="legal-fact">
+              <strong>Adresse</strong>
+              <p>Salzstraße 16-17<br>48143 Münster</p>
+            </div>
+            <div class="legal-fact">
+              <strong>Kontakt</strong>
+              <p>Tel.: 0251 / 1341323<br>E-Mail: kontakt@deluxehair.de</p>
+            </div>
+            <div class="legal-fact">
+              <strong>Datenschutzkontakt</strong>
+              <p>Antje Vetter<br>kontakt@deluxehair.de</p>
+            </div>
+          </div>
+
+          <h2 id="privacy-general">Grundsätze der Verarbeitung</h2>
+          <p>Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Webseite, zur Bearbeitung Ihrer Anfrage oder zur Erfüllung rechtlicher Pflichten erforderlich ist. Maßgeblich sind insbesondere Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Anfragen und Terminabstimmungen, Art. 6 Abs. 1 lit. f DSGVO für die sichere Bereitstellung der Webseite und Art. 6 Abs. 1 lit. c DSGVO für gesetzliche Aufbewahrungspflichten.</p>
+          <p>Diese überarbeitete HTML-Seite ist bewusst sparsam umgesetzt: Es sind keine Analyse- oder Marketingtools eingebunden, keine Social-Media-Plugins aktiv, keine Google-Fonts-Anfrage hinterlegt und keine Karte von Google Maps eingebettet. Dadurch werden beim normalen Seitenaufruf keine nicht notwendigen Tracking-Technologien gesetzt.</p>
+
+          <h2 id="privacy-forms">Kontaktformular und Terminanfrage</h2>
+          <p>Wenn Sie das Kontaktformular oder die Terminanfrage nutzen, werden die von Ihnen eingegebenen Angaben in Ihrem E-Mail-Programm als Nachricht an Deluxe Hair vorbereitet. Die Webseite selbst speichert diese Angaben nicht serverseitig und betreibt keine Datenbank für Formularinhalte.</p>
+          <p>Verarbeitet werden je nach Formular insbesondere Name, E-Mail-Adresse, Telefonnummer, gewünschte Leistung, Wunschdatum, Uhrzeit und Ihre Nachricht. Zweck der Verarbeitung ist die Bearbeitung Ihrer Kontakt- oder Terminanfrage. Bitte beachten Sie, dass die Übertragung per E-Mail je nach E-Mail-Anbieter nicht durchgängig Ende-zu-Ende-verschlüsselt ist.</p>
+          <p>Die Angaben werden nur so lange aufbewahrt, wie dies zur Bearbeitung der Anfrage und für mögliche gesetzliche Nachweis- oder Aufbewahrungspflichten erforderlich ist. Empfänger können eingesetzte E-Mail- und Hosting-Dienstleister sein, soweit diese technisch oder organisatorisch an der Verarbeitung beteiligt sind.</p>
+
+          <h2 id="privacy-cookies">Cookies</h2>
+          <p>Diese Webseite setzt in der aktuellen Fassung keine technisch nicht notwendigen Cookies und verwendet kein Tracking. Deshalb ist für die aktuelle Umsetzung kein Cookie-Banner erforderlich. Sollten später Analyse-, Marketing-, Karten-, Video- oder Social-Media-Dienste eingebunden werden, muss vor deren Aktivierung eine wirksame Einwilligung eingeholt werden, sofern diese Dienste Informationen auf dem Endgerät speichern oder auslesen.</p>
+
+          <h2 id="privacy-logs">Erhebung von Zugriffsdaten</h2>
+          <p>Beim Aufruf einer gehosteten Webseite verarbeitet der Webserver technisch notwendige Zugriffsdaten, damit die Seite ausgeliefert werden kann. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene Datei, übertragene Datenmenge, Browsertyp, Betriebssystem, Referrer-URL und der anfragende Provider gehören.</p>
+          <p>Diese Verarbeitung dient der technischen Bereitstellung, Stabilität und Sicherheit der Webseite. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt, sofern kein konkreter Sicherheitsvorfall oder rechtlicher Anlass besteht.</p>
+
+          <h2 id="privacy-third">Inhalte und Dienste von Drittanbietern</h2>
+          <p>Die Seite verwendet keine eingebetteten Google-Maps-Karten, keine YouTube-Videos, keine Facebook- oder Google+-Plugins und keine externen Google Fonts. Google Maps wird lediglich als normaler Link geöffnet, wenn Sie den Link aktiv anklicken. Erst dann verlassen Sie diese Webseite und es gelten die Datenschutzbedingungen des jeweiligen Anbieters.</p>
+          <p>Die eingebundenen Salonbilder werden von deluxehair.de geladen. Wenn diese Seite auf derselben Domain betrieben wird, handelt es sich um eine Einbindung innerhalb des eigenen Webangebots. Werden später Bilder, Schriften, Karten oder Skripte von fremden Domains eingebunden, sollte die Datenschutzerklärung entsprechend ergänzt und gegebenenfalls ein Einwilligungsmechanismus vorgeschaltet werden.</p>
+
+          <h2>Widerspruch Werbe-E-Mails</h2>
+          <p>Im Rahmen der gesetzlichen Impressumspflicht müssen wir unsere Kontaktdaten veröffentlichen. Diese werden von dritten Personen teilweise zur Übersendung nicht erwünschter Werbung und Informationen genutzt. Wir widersprechen hiermit jeglicher von uns nicht ausdrücklich autorisierten Übersendung von Werbematerial aller Art. Wir behalten uns ferner ausdrücklich rechtliche Schritte gegen die unerwünschte und unverlangte Zusendung von Werbematerial vor. Dies gilt insbesondere für sogenannte Spam-E-Mails, Spam-Briefe und Spam-Faxe.</p>
+
+          <h2 id="privacy-rights">Ihre Rechte</h2>
+          <p>Sie haben im Rahmen der gesetzlichen Voraussetzungen das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen. Wenn eine Verarbeitung auf einer Einwilligung beruht, können Sie diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+          <p>Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für Unternehmen in Nordrhein-Westfalen ist regelmäßig die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen zuständig.</p>
+
+          <p class="legal-muted">Stand: Mai 2026. Dieser Text beschreibt die aktuelle technische Umsetzung dieser HTML-Datei. Bei späterer Einbindung von Tracking, Newsletter, eingebetteten Karten, Videos, Buchungssystemen oder extern gehosteten Schriften sollte die Datenschutzerklärung erneut angepasst und rechtlich geprüft werden.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Deluxe Hair Münster</div>
+        <p>Friseur in der Salzstraße für präzise Schnitte, moderne Farbe, Balayage, Pflege und Styling in entspannter Salonatmosphäre.</p>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <a onclick="go('home')">Home</a>
+        <a onclick="go('preise')">Preise</a>
+        <a onclick="go('ueber')">Über uns</a>
+        <a onclick="go('buchung')">Buchung</a>
+        <a onclick="go('kontakt')">Kontakt</a>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <a href="https://maps.google.com/?q=Salzstra%C3%9Fe+16+48143+M%C3%BCnster" target="_blank" rel="noopener">Salzstraße 16-17</a>
+        <a href="tel:+492511341323">0251 / 1341323</a>
+        <a href="mailto:kontakt@deluxehair.de">kontakt@deluxehair.de</a>
+        <a href="https://deluxehair.de" target="_blank" rel="noopener">deluxehair.de</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deluxe Hair Münster</span>
+      <span class="legal-links">
+        <a href="#p-impressum" onclick="go('impressum');return false;">Impressum</a>
+        <span>·</span>
+        <a href="#p-datenschutz" onclick="go('datenschutz');return false;">Datenschutz</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navLinks = document.querySelectorAll('.nav-link');
+const navList = document.getElementById('navLinks');
+const today = new Date().toISOString().split('T')[0];
+const dateInput = document.getElementById('date');
+if (dateInput) dateInput.min = today;
+
+function go(id, clicked) {
+  pages.forEach(page => page.classList.toggle('active', page.id === 'p-' + id));
+  navLinks.forEach(link => link.classList.toggle('active', link.dataset.page === id));
+  if (clicked && clicked.dataset) clicked.classList.add('active');
+  navList.classList.remove('open');
+  const menu = document.querySelector('.menu-btn');
+  if (menu) menu.setAttribute('aria-expanded', 'false');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMenu(button) {
+  const isOpen = navList.classList.toggle('open');
+  button.setAttribute('aria-expanded', String(isOpen));
+}
+
+function selectSlot(button) {
+  document.querySelectorAll('.slot').forEach(slot => slot.classList.remove('selected'));
+  button.classList.add('selected');
+  document.getElementById('time').value = button.textContent.trim();
+}
+
+function encodeMail(lines) {
+  return encodeURIComponent(lines.filter(Boolean).join('\n'));
+}
+
+const initialPage = window.location.hash.replace(/^#p-/, '').replace(/^#/, '');
+if (initialPage && document.getElementById('p-' + initialPage)) go(initialPage);
+
+document.getElementById('bookingForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const name = `${form.firstName.value.trim()} ${form.lastName.value.trim()}`.trim();
+  const body = encodeMail([
+    `Name: ${name}`,
+    `Telefon: ${form.phone.value.trim()}`,
+    `E-Mail: ${form.email.value.trim()}`,
+    `Leistung: ${form.service.value}`,
+    `Wunschdatum: ${form.date.value}`,
+    `Uhrzeit: ${form.time.value || 'flexibel'}`,
+    '',
+    `Nachricht: ${form.message.value.trim() || '-'}`
+  ]);
+  window.location.href = `mailto:kontakt@deluxehair.de?subject=Terminanfrage%20Deluxe%20Hair&body=${body}`;
+  document.getElementById('bookingSuccess').classList.add('show');
+});
+
+document.getElementById('contactForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const body = encodeMail([
+    `Name: ${document.getElementById('contactName').value.trim()}`,
+    `E-Mail: ${document.getElementById('contactEmail').value.trim()}`,
+    '',
+    document.getElementById('contactMessage').value.trim()
+  ]);
+  const subject = encodeURIComponent(document.getElementById('subject').value.trim() || 'Nachricht an Deluxe Hair');
+  window.location.href = `mailto:kontakt@deluxehair.de?subject=${subject}&body=${body}`;
+  document.getElementById('contactSuccess').classList.add('show');
+});
+</script>
+</body>
+</html>
